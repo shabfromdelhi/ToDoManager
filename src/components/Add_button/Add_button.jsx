@@ -21,11 +21,19 @@ const StyleButton = styled(Button)`
         color: #000;
     }
 `
+const StylePara = styled.p`
+    font-size: 3rem;
+    margin-top: -24px;
+    margin-left: -7px;
+}
+`
 
-export const AddButton = () =>{
+export const AddButton = ({ modalHandle}) =>{
     return(
         <div>
-            <StyleButton>+</StyleButton>
+            <StyleButton onClick={modalHandle}>
+                <StylePara>+</StylePara>
+            </StyleButton>
         </div>
     )
 }

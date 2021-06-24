@@ -27,12 +27,12 @@ const StylePara = styled.p`
     border-radius: 6px;
 `
 
-export const BoxList = () =>{
+export const BoxList = ({ modalHandle}) =>{
     return(
         <StyleBox>
 
             <StylePara>Click on add button to start your to do lists.</StylePara>
-            <AddButton/>
+            <AddButton modalHandle={modalHandle}/>
 
         </StyleBox>
     )

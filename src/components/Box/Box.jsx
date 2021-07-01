@@ -4,6 +4,8 @@ import styled from 'styled-components'
 
 import { AddButton } from '../Add_button/Add_button'
 
+import { ListItem } from '../ListItem/ListItem'
+
 const StyleBox = styled.div`
     height: 30rem;
     width: 66rem;
@@ -12,6 +14,13 @@ const StyleBox = styled.div`
     margin: 0 auto;
     margin-left: -28rem;
     margin-top: 4rem;
+
+    ul {
+        margin-top: 2rem;
+        text-align: initial;
+    }
+
+
 ` 
 
 const StylePara = styled.p`
@@ -27,12 +36,23 @@ const StylePara = styled.p`
     border-radius: 6px;
 `
 
-export const BoxList = ({ modalHandle}) =>{
+
+export const BoxList = ({ modalHandle, toDoList}) =>{
+    console.log(toDoList)
     return(
         <StyleBox>
+            {toDoList.length ? (
+                toDoList.map((item, index) => (
 
-            <StylePara>Click on add button to start your to do lists.</StylePara>
+                    <ListItem item={item} index={index}/>
+
+                ))
+            ) : (
+                <StylePara>Click on add button to start your to do lists.</StylePara>
+            )
+            }
             <AddButton modalHandle={modalHandle}/>
+
 
         </StyleBox>
     )

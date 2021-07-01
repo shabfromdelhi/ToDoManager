@@ -25,6 +25,8 @@ export const Container = () =>{
 
     const [ isModalVisible, setIsModalVisible] = React.useState(false)
 
+    const [ toDoList, setToDoList ] = React.useState([])
+
     const modalHandle = () =>{
         setIsModalVisible(true)
     }
@@ -37,12 +39,16 @@ export const Container = () =>{
         setIsModalVisible(false)
     }
 
+    const handleToDoAdd = (obj) =>{
+        setToDoList([...toDoList, obj])
+    }
+
     return(
       <StyledContainer>
 
           <StyleParagraph>To Do List</StyleParagraph>
-          <BoxList modalHandle = {modalHandle}/>
-          <ToDoModal isModalVisible = {isModalVisible} onOk={handleOk} onCancel={handleCancel}/>
+          <BoxList modalHandle = {modalHandle} toDoList={toDoList}/>
+          <ToDoModal isModalVisible = {isModalVisible} onOk={handleOk} onCancel={handleCancel} handleToDoAdd={handleToDoAdd}/>
           
 
       </StyledContainer>
